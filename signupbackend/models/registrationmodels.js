@@ -1,0 +1,65 @@
+const mongoose = require("mongoose");
+const registrationData = new  mongoose.Schema({
+    fname:
+    {
+    type:String,
+    required:true
+    },
+    lname:
+    {
+    type:String,
+    required:true,
+    // unique:true
+    },
+    uname:
+    {
+    type:String,
+    required:true
+    },
+    ucity:
+    {
+    type:String,
+    required:true
+    },
+    ustate:
+    {
+    type:String,
+    required:true
+    },
+    university:
+    {
+    type:String,
+    required:true
+    },
+    ucourse:
+    {
+    type:String,
+    required:true
+    },
+    ubranch:
+    {
+    type:String,
+    required:true
+    },
+    uyear:
+    {
+    type:Number,
+    required:true
+    },
+    uevent:
+    {
+    type:String,
+    required:true
+    },
+    tname:
+    {
+    type:String,
+    required:true
+    },
+    tsize:
+    {
+    type:Number,
+    required:true
+    }
+});
+module.exports = mongoose.model("registration",registrationData);

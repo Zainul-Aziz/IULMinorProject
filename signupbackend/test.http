@@ -1,0 +1,24 @@
+POST http://localhost:4000/app/registration
+Content-Type: application/json
+
+# {
+#     "username":"Zainul",
+#     "email":"zain@iul.com",
+#     "mob":"9554423",
+#     "pass":"123",
+#     "cpass":"123"
+# }
+{
+    "fname":"ahmad",
+    "lname":"aziz",
+    "uname":"ahmadiul@iul.in",
+    "ucity":"lko",
+    "ustate":"up",
+    "university":"iul",
+    "ucourse":"bcom",
+    "ubranch":"cse",
+    "uyear":"4",
+    "uevent":"bbs",
+    "tname":"hero2",
+    "tsize":"8"  
+}
