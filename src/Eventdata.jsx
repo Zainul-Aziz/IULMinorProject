@@ -21,13 +21,13 @@ const Eventinfo = [
     },
     {
         imgsrc: web4,
-        title:"Rush Hour",
+        title:"Photography",
         desc:"College students showcase their hidden talent.",
         register:"/Rush"
     },
     {
         imgsrc: web5,
-        title:"Tekken7",
+        title:"Quizaholic",
         desc:"College students showcase their hidden talent.",
         register:"/Tekken"
     },

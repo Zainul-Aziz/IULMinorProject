@@ -23,7 +23,7 @@ const Events = () => {
                         <Card eventImg={img} eventName="Andaz-e-Awadh" eventDesc="College students showcase their hidden talent." visit="" /> */
                         
                         Eventinfo.map((val,index) => {
-                            return <Card key={index} eventImg={val.imgsrc} eventName={val.title} eventDesc={val.desc} visit={val.register} />     
+                            return <Card key={index} eventImg={val.imgsrc} eventName={val.title} eventDesc="" visit={val.register} />     
                         })
                         
                         }

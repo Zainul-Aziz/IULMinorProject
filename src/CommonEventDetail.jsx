@@ -11,10 +11,17 @@ const CommonEventDetail = (props) => {
                         <div className="row">
                             <div className="col-md-6 pt-5 pt-lg-0 order-2 order-lg-1 mb-3">
                             <h1>{props.name}</h1> 
-                                <h2 className="my-3">
+                                {/* <h2 className="my-3">
                                 Grow your extra skills.
-                                </h2>
+                                </h2> */}
                                 <p>{props.desc}</p>
+                                <ul>
+                                    <li>{props.rule1}</li>
+                                    <li>{props.rule2}</li>
+                                    <li>{props.rule3}</li>
+                                    <li>{props.rule4}</li>
+                                    <li>{props.rule5}</li>
+                                </ul>
                                 <div className="mt-3">
                                     <NavLink to={props.visit} className="btn btn-primary">{props.btname}</NavLink>
                                 </div>
