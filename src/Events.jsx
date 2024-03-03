@@ -1,38 +1,64 @@
-import React from 'react';
-import Card from './Card';
-import Register from "./Register";
-import img from '../src/images/img1.jpg';
-import Eventinfo from './Eventdata';
+import React, { useEffect, useState } from "react";
+import Card from "./Card";
+import Eventinfo from "./Eventdata";
+import AddEvent from "./AddEvent";
+import axios from "axios";
+//require("../src/images");
 const Events = () => {
-    return (
-        // <h1>Welcome EventPage</h1>
-        <section>
+  const [eventsData, seteventsData] = useState([]);
+
+  useEffect(() => {
+    getImage();
+  }, []);
+
+  const getImage = async () => {
+    const result = await axios.get("http://localhost:4000/app/get-image");
+    //console.log(result);
+    //console.log(result.data.data[0].name);
+    seteventsData(result.data.data);
+    //setAllImage(result.data.data);
+  };
+
+  return (
+    // <h1>Welcome EventPage</h1>
+    <>
+      <section>
         <div className="my-5">
-            <h1 className="text-center">Our Events</h1>
+          <h1 className="text-center">Our Events</h1>
         </div>
         <div className="container-fluid mb-5">
-            <div className="row">
-                <div className="col-10 mx-auto">
-                    <div className="row gy-4">
-
-                        {/* <Card eventImg={img} eventName="Andaz-e-Awadh" eventDesc="College students showcase their hidden talent." visit="" />
+          <div className="row">
+            <div className="col-10 mx-auto">
+              <div className="row gy-4">
+                {
+                  /* <Card eventImg={img} eventName="Andaz-e-Awadh" eventDesc="College students showcase their hidden talent." visit="" />
                         <Card eventImg={img} eventName="Andaz-e-Awadh" eventDesc="College students showcase their hidden talent." visit="" />
                         <Card eventImg={img} eventName="Andaz-e-Awadh" eventDesc="College students showcase their hidden talent." visit="" />
                         <Card eventImg={img} eventName="Andaz-e-Awadh" eventDesc="College students showcase their hidden talent." visit="" />
                         <Card eventImg={img} eventName="Andaz-e-Awadh" eventDesc="College students showcase their hidden talent." visit="" />
                         <Card eventImg={img} eventName="Andaz-e-Awadh" eventDesc="College students showcase their hidden talent." visit="" /> */
-                        
-                        Eventinfo.map((val,index) => {
-                            return <Card key={index} eventImg={val.imgsrc} eventName={val.title} eventDesc="" visit={val.register} />     
-                        })
-                        
-                        }
-                        
-                    </div>
-                </div>
+
+                  eventsData.map((event, index) => {
+                    return (
+                      <Card
+                        key={index}
+                        eventImg={event.image}
+                        eventName={event.name}
+                        eventTeamSize={event.team_size}
+                        eventFee={event.fee}
+                        eventDesc=""
+                        //visit={val.register}
+                      />
+                    );
+                  })
+                }
+              </div>
             </div>
-        </div>    
-        </section>
-    );
+          </div>
+        </div>
+      </section>
+      <AddEvent />
+    </>
+  );
 };
 export default Events;

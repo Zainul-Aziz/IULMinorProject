@@ -1,5 +1,4 @@
 import web from '../src/images/img1.jpg';
-
 import web1 from '../src/images/nukkad.jpg';
 import web2 from '../src/images/andaz.jpg';
 import web3 from '../src/images/treasurehunt.jpg';

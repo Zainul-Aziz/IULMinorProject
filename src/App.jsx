@@ -1,51 +1,63 @@
-import React from 'react';
+import React from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "../node_modules/bootstrap/dist/js/bootstrap.bundle.js";
-import './index.css';
-import Navbar from "./Navbar";
-import {Switch, Route, Redirect } from "react-router-dom";
-import Home from './Home';
-import SignUp from './SignUp';
-import Contact from './Contact';
-import Events from './Events';
-import About from './About';
-import Footer from "./Footer";
-import Register from "./Register";
-//import EventDetail from './EventDetail';
-import AndazAwadh from './EventsFile/AndazAwadh'
-import Rush from './EventsFile/Rush';
-import BBS from './EventsFile/BBS';
-import Tekken from './EventsFile/Tekken';
-import Nukkad from './EventsFile/Nukkad';
-import Treasure from './EventsFile/Treasure';
-//import SignUp from './SignUp';
-// import LogIn from './LogIn';
-const App =() =>
-{
-    return(
-        <div>
-            <Navbar />
-            <Switch>
-            <Route exact path="/" component={Home}/>
-            <Route exact path="/about" component={About}/>
-            <Route exact path="/contact" component={Contact}/>
-            <Route exact path="/events" component={Events}/>
-            <Route exact path="/register" component={Register}/>
-            {/* <Route exact path="/eventdetail" component={EventDetail}/> */}
-            <Route exact path="/AndazAwadh" component={AndazAwadh}/>
-            <Route exact path="/Rush" component={Rush}/>
-            <Route exact path="/BBS" component={BBS}/>
-            <Route exact path="/Treasure" component={Treasure}/>
-            <Route exact path="/Nukkad" component={Nukkad}/>
-            <Route exact path="/Tekken" component={Tekken}/>
-            {/* <Route exact path="/signin" component={SignIn}/> */}
-            <Route exact path="/sign" component={SignUp}/>
-            {/* <Route exact path="/login" component={LogIn}/> */}
-            <Redirect to="/"/>
-            <Home/>
-            </Switch>
-            <Footer/>
-        </div>
-    )
+import "bootstrap/dist/js/bootstrap.bundle.js";
+import "./index.css";
+import Navbar from "./Navbar.jsx";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Home.jsx";
+import SignUp from "./SignUp.jsx";
+import Contact from "./Contact.jsx";
+import Events from "./Events.jsx";
+import About from "./About.jsx";
+import Footer from "./Footer.jsx";
+import Register from "./Register.jsx";
+// import EventDetail from "./EventDetail";
+import EventsMoreInfo from "./EventsFile/EventsMoreInfo.jsx";
+import AdminLogin from "./AdminLogin.jsx";
+import Registrations from "./Registrations.jsx";
+// import SignUp from "./SignUp";
+//import LogIn from "./LogIn";
+const App = () => {
+  return (
+    <div>
+      <Navbar />
+      {/* <BrowserRouter> */}
+      <Routes>
+        {/* <Route path="/" element={<Home />}> */}
+        <Route path="/" element={<Home />} />
+        <Route path="home" element={<Home />} />
+        <Route path="about" element={<About />} />
+        <Route path="events" element={<Events />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="register" element={<Register />} />
+        {/* <Route path="eventdetail" element={<EventDetail />} /> */}
+        <Route path="EventsMoreInfo" element={<EventsMoreInfo />} />
+        <Route path="signup" element={<SignUp />} />
+        <Route path="Admin" element={<AdminLogin />} />
+        <Route path="registrations" element={<Registrations />} />
+        {/* <Route path="SignUp" element={<SignUp />} /> */}
+        {/* <Route path="LogIn" element={<LogIn />} /> */}
+        {/* <Route path="contact" element={Contact} />
+          <Route path="events" element={Events} />
+          <Route path="register" element={Register} /> */}
+        {/* <Route path="/eventdetail" element={EventDetail}/> */}
+        {/* <Route path="/AndazAwadh" element={AndazAwadh} />
+            <Route path="/Rush" element={Rush} />
+            <Route path="/BBS" element={BBS} />
+            <Route path="/Treasure" element={Treasure} />
+            <Route path="/Nukkad" element={Nukkad} />
+            <Route path="/Tekken" element={Tekken} />
+            <Route path="/EventsMoreInfo" element={EventsMoreInfo} /> */}
+        {/* <Route path="/signin" element={SignIn}/> */}
+        {/* <Route path="/sign" element={SignUp} /> */}
+        {/* <Route path="/login" element={LogIn}/> */}
+        {/* <Redirect to="/" /> */}
+        {/* <Home /> */}
+        {/* </Route> */}
+      </Routes>
+      {/* </BrowserRouter> */}
+      <Footer />
+    </div>
+  );
 };
 export default App;
