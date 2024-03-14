@@ -17,7 +17,7 @@ const AddEvent = () => {
     formData.append("edesc", edesc);
     formData.append("eteamSize", eteamSize);
     formData.append("eParticipationFee", eParticipationFee);
-    //console.log(formData);
+    console.log(formData);
     const result = await axios.post(
       "http://localhost:4000/app/upload-event-data",
       formData,
@@ -27,9 +27,9 @@ const AddEvent = () => {
     );
     console.log(result);
     if (result.status === 200) {
-      console.log("hello");
+      //console.log("hello");
       // navigate("/events");
-      window.location.href = "/events";
+      //window.location.href = "/events";
     }
   };
 
@@ -46,6 +46,7 @@ const AddEvent = () => {
             type="text"
             className="form-control"
             id="Input1"
+            required
             value={ename}
             placeholder="Event name"
             onChange={(e) => {
@@ -59,6 +60,7 @@ const AddEvent = () => {
             type="text"
             className="form-control"
             id="Input2"
+            required
             value={edesc}
             placeholder="Event Description"
             onChange={(e) => {
@@ -72,6 +74,7 @@ const AddEvent = () => {
             type="number"
             className="form-control"
             id="Input3"
+            required
             min="1"
             value={eteamSize}
             placeholder="Team Size"
@@ -86,6 +89,7 @@ const AddEvent = () => {
             type="number"
             className="form-control"
             id="Input4"
+            required
             min="100"
             value={eParticipationFee}
             placeholder="Participation Fee"
@@ -97,6 +101,7 @@ const AddEvent = () => {
         </div>
         <input
           type="file"
+          required
           className="form-control"
           onChange={(e) => {
             setImage(e.target.files[0]);

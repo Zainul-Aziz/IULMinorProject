@@ -6,7 +6,7 @@ import web1 from "../src/images/nukkad.jpg";
 // import img from "./images/1708874236599_Screenshot (1).png";
 const Card = (props) => {
   //   const imgsrc = `./images/${props.eventImg}`;
-  console.log(props);
+  //console.log(props);
   return (
     <div className="col-md-4 col-10  mx-auto mb-4">
       <div className="card placeImg">
