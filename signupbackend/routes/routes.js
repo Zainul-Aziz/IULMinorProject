@@ -1,10 +1,9 @@
-const { request, response } = require("express");
-const { req, res } = require("express");
 const express = require("express");
 const router = express.Router();
 const signupTemplate = require("../models/signupmodels");
 const registrationTemplate = require("../models/registrationmodels");
 const eventTemplate = require("../models/events");
+const adminTemplate = require("../models/admin");
 const multer = require("multer");
 //const path = require("path");
 
@@ -31,6 +30,7 @@ router.post("/signup", (request, response) => {
     pass: request.body.pass,
     cpass: request.body.cpass,
   });
+  console.log(request.body);
   signedUpUser
     .save()
     .then((data) => {
@@ -38,6 +38,24 @@ router.post("/signup", (request, response) => {
     })
     .catch((error) => {
       response.json(error);
+    });
+});
+
+router.post("/ADMlogin", (request, response) => {
+  //console.log(request.body);
+  adminTemplate
+    .findOne({ email: request.body.email })
+    .then((data) => {
+      //console.log(data);
+      if (data != null && data.pass === request.body.pass) {
+        //imp concept of AND operator
+        response.json({ status: "Ok" });
+      } else {
+        response.json({ status: "No" });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
     });
 });
 //Registration Collection
@@ -77,6 +95,16 @@ router.get("/get-image", async (req, res) => {
   }
 });
 
+router.get("/loginadmin", async (req, res) => {
+  try {
+    adminTemplate.find({}).then((data) => {
+      res.send({ status: "ok", data: data });
+    });
+  } catch (error) {
+    res.json({ status: error });
+  }
+});
+
 router.get("/registrationData", async (req, res) => {
   try {
     registrationTemplate.find({}).then((data) => {
@@ -96,6 +124,7 @@ router.post("/upload-event-data", upload.single("image"), async (req, res) => {
     return;
   }
   try {
+    //console.log(req.body);
     const eventDetails = new eventTemplate({
       image: imageName,
       name: req.body.ename,
@@ -119,4 +148,44 @@ router.post("/upload-event-data", upload.single("image"), async (req, res) => {
   }
 });
 
+router.post("/adminlogin", (request, response) => {
+  const adminLogin = new adminTemplate({
+    email: request.body.email,
+    pass: request.body.pass,
+  });
+  adminLogin
+    .save()
+    .then((data) => {
+      response.json(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+// router.post("/checkAddEvent", async (req, res) => {
+//   console.log(req.body);
+// });
+
+// router.post("/checkAdmin", (req, res) => {
+//   console.log(req.body);
+//   adminTemplate
+//     .findOne({ email: req.body.email })
+//     .then((data) => {
+//       //console.log(data);
+//       // console.log(data.pass);
+//       //console.log(req.body.pass);
+//       if (data != null && data.pass === req.body.pass) {
+//         //imp concept of AND operator
+//         res.json({ status: "Ok" });
+//       } else {
+//         res.json({ status: "No" });
+//       }
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//     });
+//   console.log(req.body.email);
+//   //res.send(req);
+// });
 module.exports = router;

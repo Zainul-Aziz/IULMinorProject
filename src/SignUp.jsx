@@ -41,7 +41,7 @@ const SignUp = () => {
       pass: "",
       cpass: "",
     });
-    window.location.href = "/Home";
+    //window.location.href = "/Home";
   };
 
   return (

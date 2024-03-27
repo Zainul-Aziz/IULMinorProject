@@ -13,8 +13,8 @@ import Footer from "./Footer.jsx";
 import Register from "./Register.jsx";
 // import EventDetail from "./EventDetail";
 import EventsMoreInfo from "./EventsFile/EventsMoreInfo.jsx";
-import AdminLogin from "./AdminLogin.jsx";
 import Registrations from "./Registrations.jsx";
+import SignUpCopy from "./ADMLogin.jsx";
 // import SignUp from "./SignUp";
 //import LogIn from "./LogIn";
 const App = () => {
@@ -33,7 +33,7 @@ const App = () => {
         {/* <Route path="eventdetail" element={<EventDetail />} /> */}
         <Route path="EventsMoreInfo" element={<EventsMoreInfo />} />
         <Route path="signup" element={<SignUp />} />
-        <Route path="Admin" element={<AdminLogin />} />
+        <Route path="Admin" element={<SignUpCopy />} />
         <Route path="registrations" element={<Registrations />} />
         {/* <Route path="SignUp" element={<SignUp />} /> */}
         {/* <Route path="LogIn" element={<LogIn />} /> */}
