@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-// import Button from "@material-ui/core/Button";
 
 const Contact = () => {
   const [data, setData] = useState({

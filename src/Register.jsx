@@ -1,7 +1,8 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
-import { render } from "@testing-library/react";
+import { userLoginActions } from "./store/index";
+import { useDispatch, useSelector } from "react-redux";
 
 const Register = () => {
   const [data, setdata] = useState({
@@ -27,7 +28,11 @@ const Register = () => {
       };
     });
   };
-
+  const isAuth = useSelector((state) => state.authenticateUser.userlogin);
+  console.log(isAuth);
+  if (!isAuth) {
+    window.location.href = "/registerORLogin";
+  }
   const onSubmit = (event) => {
     event.preventDefault();
     const registrationDetail = {

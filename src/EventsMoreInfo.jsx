@@ -1,22 +1,18 @@
-import React, { useEffect, useState } from "react";
-import CommonEventDetail from "../CommonEventDetail";
-import Events from "../Events";
-import web2 from "../images/andaz.jpg";
-import { NavLink } from "react-router-dom";
+import React, { useEffect } from "react";
+import CommonEventDetail from "./CommonEventDetail";
 import { useNavigate, useLocation } from "react-router-dom";
-// import { redirect } from "react-router-dom";
 
 const EventsMoreInfo = (props) => {
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location.state);
+  //console.log(location.state);
   //const [show, setshow] = useState("false");
   useEffect(() => {
     if (location.state === null) {
       navigate("/events");
     }
   }, []);
-  console.log(location);
+  //console.log(location);
   // if (location == undefined) {
   //   console.log("inside if");
   //   //navigate("/events");

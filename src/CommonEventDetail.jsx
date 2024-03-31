@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import img from "../src/images/img1.jpg";
 const CommonEventDetail = (props) => {
-  console.log(props);
+  //console.log(props);
   return (
     // <h1>Welcome AboutPage</h1>
     <section id="header" className="mt-5 d-flex align-items-center">

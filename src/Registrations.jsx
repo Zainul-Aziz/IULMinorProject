@@ -11,7 +11,6 @@ const Registrations = () => {
     const result = await axios.get(
       "http://localhost:4000/app/registrationData"
     );
-    console.log(result.data.data);
     setregistrationData(result.data.data);
   };
   return (

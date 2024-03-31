@@ -1,6 +1,14 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+
 import "./index.css";
+import "./App.css";
+
+library.add(faUser);
+
 const Navbar = () => {
   return (
     <div>
@@ -9,9 +17,12 @@ const Navbar = () => {
           <div>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
               <div className="container-fluid ">
-                <a className="navbar-brand" href="/">
+                {/* <a className="navbar-brand" href="/">
                   EventMaster
-                </a>
+                </a> */}
+                <NavLink className="navbar-brand" aria-current="page" to="/">
+                  EventMaster
+                </NavLink>
                 <button
                   className="navbar-toggler"
                   type="button"
@@ -27,8 +38,7 @@ const Navbar = () => {
                   <ul className="navbar-nav ms-auto">
                     <li className="nav-item">
                       <NavLink
-                        exact
-                        activeClassName="menuActive"
+                        activeclassname="menuActive"
                         className="nav-link active"
                         aria-current="page"
                         to="/"
@@ -38,7 +48,7 @@ const Navbar = () => {
                     </li>
                     <li className="nav-item">
                       <NavLink
-                        activeClassName="menuActive"
+                        activeclassname="menuActive"
                         className="nav-link"
                         to="/about"
                       >
@@ -47,7 +57,7 @@ const Navbar = () => {
                     </li>
                     <li className="nav-item">
                       <NavLink
-                        activeClassName="menuActive"
+                        activeclassname="menuActive"
                         className="nav-link"
                         to="/events"
                       >
@@ -56,29 +66,27 @@ const Navbar = () => {
                     </li>
                     <li className="nav-item">
                       <NavLink
-                        activeClassName="menuActive"
-                        className="nav-link"
-                        to="/signup"
-                      >
-                        SignUp
-                      </NavLink>
-                    </li>
-                    <li className="nav-item">
-                      <NavLink
-                        activeClassName="menuActive"
+                        activeclassname="menuActive"
                         className="nav-link"
                         to="/contact"
                       >
                         Contact
                       </NavLink>
                     </li>
+                    <li>
+                      {/* <img
+                        src=""
+                        class="img-responsive img-circle mystyle"
+                        width="50"
+                      /> */}
+                    </li>
                     <li className="nav-item">
                       <NavLink
-                        activeClassName="menuActive"
+                        activeclassname="menuActive"
                         className="nav-link"
-                        to="/admin"
+                        to="/registerORLogin"
                       >
-                        Admin
+                        <FontAwesomeIcon icon="user" to="/registerORLogin" />
                       </NavLink>
                     </li>
                   </ul>

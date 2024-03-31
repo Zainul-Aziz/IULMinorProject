@@ -1,5 +1,4 @@
 import React from "react";
-import web from "../src/images/AboutImages/3.jpg";
 import vc from "./images/VC12.jpg";
 import dsw from "./images/dsw.jpg";
 import Common from "./Common";

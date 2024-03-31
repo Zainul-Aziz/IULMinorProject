@@ -1,9 +1,5 @@
 import React from "react";
-//import Register from "./Register";
 import { NavLink } from "react-router-dom";
-import EventsMoreInfo from "./EventsFile/EventsMoreInfo";
-import web1 from "../src/images/nukkad.jpg";
-// import img from "./images/1708874236599_Screenshot (1).png";
 const Card = (props) => {
   //   const imgsrc = `./images/${props.eventImg}`;
   //console.log(props);

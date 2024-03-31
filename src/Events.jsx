@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
-import Eventinfo from "./Eventdata";
 import AddEvent from "./AddEvent";
 import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
-import { authActions } from "./store/index";
+import { useSelector } from "react-redux";
 //require("../src/images");
 const Events = () => {
   const isAuth = useSelector((state) => state.authenticate.isAuth);

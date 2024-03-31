@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 const AddEvent = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [image, setImage] = useState(null);
   const [ename, setEname] = useState("");
   const [edesc, setEdesc] = useState("");

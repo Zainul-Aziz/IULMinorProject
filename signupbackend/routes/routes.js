@@ -49,7 +49,22 @@ router.post("/ADMlogin", (request, response) => {
       //console.log(data);
       if (data != null && data.pass === request.body.pass) {
         //imp concept of AND operator
-        response.json({ status: "Ok" });
+        response.json({ status: "Ok", data: data.email });
+      } else {
+        response.json({ status: "No" });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+router.post("/userlogin", (request, response) => {
+  signupTemplate
+    .findOne({ email: request.body.email })
+    .then((data) => {
+      if (data != null && data.pass === request.body.pass) {
+        response.json({ status: "Ok", data: data.email });
       } else {
         response.json({ status: "No" });
       }
