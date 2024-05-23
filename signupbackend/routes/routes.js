@@ -5,7 +5,20 @@ const registrationTemplate = require("../models/registrationmodels");
 const eventTemplate = require("../models/events");
 const adminTemplate = require("../models/admin");
 const multer = require("multer");
-//const path = require("path");
+const nodemailer = require("nodemailer");
+const dotenv = require("dotenv");
+
+dotenv.config({ path: "././config.env" });
+const EMAIL_ID = process.env.EMAIL_ID;
+const EMAIL_PASSWORD = process.env.EMAIL_PASSWORD;
+
+var transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: EMAIL_ID,
+    pass: EMAIL_PASSWORD,
+  },
+});
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -76,6 +89,12 @@ router.post("/userlogin", (request, response) => {
 //Registration Collection
 
 router.post("/registration", (request, response) => {
+  const mailOptions = {
+    from: EMAIL_ID,
+    to: request.body.uname,
+    subject: "Registration successfull!!!",
+    text: `Hi ${request.body.fname}, Congrats!! your registration completed for Event-${request.body.uevent}!`,
+  };
   const regDetails = new registrationTemplate({
     fname: request.body.fname,
     lname: request.body.lname,
@@ -94,6 +113,13 @@ router.post("/registration", (request, response) => {
     .save()
     .then((data) => {
       response.json(data);
+      transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log("Email sent: " + info.response);
+        }
+      });
     })
     .catch((error) => {
       response.json(error);
